@@ -22,6 +22,19 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :sbanken_monitor,
+  client_id: System.get_env("SBANKEN_CLIENT_ID"),
+  password: System.get_env("SBANKEN_PASSWORD"),
+  slack_url: System.get_env("SLACK_URL"),
+  customer_id: System.get_env("CUSTOMER_ID"),
+  heartbeat_url: System.get_env("HEARTBEAT_URL")
+
+config :sentry,
+  dsn: System.get_env("SENTRY_DSN"),
+  included_environments: [:prod],
+  environment_name: Mix.env(),
+  release: System.get_env("TRAVIS_COMMIT")
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
