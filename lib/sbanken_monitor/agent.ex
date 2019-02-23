@@ -9,12 +9,12 @@ defmodule SbankenMonitor.Agent do
       require Logger
 
       def start_link(args) do
-        Logger.debug("#{__MODULE__} start_link args: #{inspect(args)}")
+        Logger.debug(fn -> "#{__MODULE__} start_link args: #{inspect(args)}" end)
         GenServer.start_link(__MODULE__, args, name: __MODULE__)
       end
 
       def init(_args) do
-        Logger.debug("#{__MODULE__} init")
+        Logger.debug(fn -> "#{__MODULE__} init" end)
         state = %__MODULE__.State{}
         schedule()
 
@@ -32,7 +32,7 @@ defmodule SbankenMonitor.Agent do
       def handle_info(:work, state) do
         schedule()
         new_state = do_work(state)
-        Logger.debug("#{__MODULE__} handle_info")
+        Logger.debug(fn -> "#{__MODULE__} handle_info" end)
         {:noreply, new_state}
       end
     end
