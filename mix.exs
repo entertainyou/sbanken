@@ -9,6 +9,7 @@ defmodule Sbanken.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
+      aliases: aliases(),
       deps: deps()
     ]
   end
@@ -44,6 +45,12 @@ defmodule Sbanken.MixProject do
       {:distillery, "~> 2.0"},
       {:credo, "~> 1.0"},
       {:sentry, "~> 7.0"}
+    ]
+  end
+
+  def aliases() do
+    [
+      test: "test --no-start"
     ]
   end
 end
