@@ -1,5 +1,7 @@
 # Sbanken
 
+[![Build Status](https://travis-ci.org/entertainyou/sbanken.svg?branch=master)](https://travis-ci.org/entertainyou/sbanken)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
