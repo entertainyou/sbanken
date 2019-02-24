@@ -16,7 +16,7 @@ defmodule SbankenWeb.SlackController do
         end)
         |> Enum.join("\n")
 
-      {:ok, result} |> IO.inspect()
+      {:ok, result}
     end
   end
 
@@ -37,7 +37,7 @@ defmodule SbankenWeb.SlackController do
         end)
         |> Enum.join("\n\n")
 
-      Slack.send_response(response_url, %{text: text}) |> IO.inspect()
+      Slack.send_response(response_url, %{text: text})
     end
   end
 
