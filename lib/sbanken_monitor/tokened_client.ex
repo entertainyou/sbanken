@@ -4,6 +4,7 @@ defmodule SbankenMonitor.TokenedClient do
   alias SbankenMonitor.Client
 
   @interval 50 |> Duration.from_minutes() |> Duration.to_milliseconds(truncate: true)
+  @timeout 20_000
 
   defmodule State do
     @moduledoc false
@@ -18,15 +19,15 @@ defmodule SbankenMonitor.TokenedClient do
   end
 
   def get_accounts() do
-    GenServer.call(__MODULE__, :get_accounts)
+    GenServer.call(__MODULE__, :get_accounts, @timeout)
   end
 
   def get_account(account_id) do
-    GenServer.call(__MODULE__, {:get_account, account_id})
+    GenServer.call(__MODULE__, {:get_account, account_id}, @timeout)
   end
 
   def get_transactions(account_id) do
-    GenServer.call(__MODULE__, {:get_transaction, account_id})
+    GenServer.call(__MODULE__, {:get_transaction, account_id}, @timeout)
   end
 
   def handle_call(:get_accounts, _from, %State{client: client} = state) do
