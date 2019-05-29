@@ -9,13 +9,13 @@ cache:
   - deps
 jobs:
   include:
-    - stage: code format check
+    - name: code format check
       script: mix format --check-formatted
-    - stage: test
+    - name: test
       script: mix test
-    - stage: code analysis
+    - name: code analysis
       script: mix credo
-    - stage: coverage
+    - name: coverage
       script: MIX_ENV=test mix coveralls.travis
     - stage: build release
       script: MIX_ENV=prod mix release --quiet
