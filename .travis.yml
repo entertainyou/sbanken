@@ -11,6 +11,7 @@ script:
 - mix format --check-formatted
 - mix test
 - mix credo
+- mix coveralls.travis
 - MIX_ENV=prod mix release --quiet
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_fb19f4b5929a_key -iv $encrypted_fb19f4b5929a_iv

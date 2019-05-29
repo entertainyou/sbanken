@@ -10,7 +10,8 @@ defmodule Sbanken.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
@@ -44,7 +45,8 @@ defmodule Sbanken.MixProject do
       {:timex, "~> 3.3"},
       {:distillery, "~> 2.0"},
       {:credo, "~> 1.0"},
-      {:sentry, "~> 7.0"}
+      {:sentry, "~> 7.0"},
+      {:excoveralls, "~> 0.11.1"}
     ]
   end
 
