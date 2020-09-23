@@ -46,7 +46,7 @@ defmodule Sbanken.MixProject do
       {:distillery, "~> 2.0"},
       {:credo, "~> 1.0"},
       {:sentry, "~> 7.0"},
-      {:excoveralls, "~> 0.11.1"}
+      {:excoveralls, "~> 0.13.2"}
     ]
   end
 
